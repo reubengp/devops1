@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_BIN = '/usr/local/bin/docker'
+        PATH = "/usr/local/bin:/Applications/Docker.app/Contents/Resources/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     }
 
     stages {
