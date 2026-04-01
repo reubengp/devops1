@@ -10,10 +10,19 @@ project/
 │── test_app.py
 │── requirements.txt
 │── Dockerfile
+│── Jenkinsfile
 │── README.md
 │── .github/workflows/main.yml
 ```
 
+## Run Locally
+
+1. Create and activate a virtual environment.
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
 
 3. Run the Flask application:
 
@@ -49,8 +58,9 @@ The GitHub Actions workflow runs on every `push` and `pull_request`. It installs
 
 ## Jenkins Explanation
 
-
 - Pulls code from GitHub
 - Builds the project
 - Runs tests
 - Acts as a quality gate before deployment or release
+
+This repository also includes a `Jenkinsfile` so the same stages can be configured in Jenkins without changing the application code. In a Jenkins setup, you would create a pipeline job connected to this GitHub repository, and Jenkins would execute the checkout, dependency installation, test, and Docker build stages automatically.
