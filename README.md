@@ -30,7 +30,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The app starts on `http://0.0.0.0:5002`.
+The app starts on `http://0.0.0.0:5001`.
 
 ## Run Tests
 
@@ -49,12 +49,12 @@ docker build -t aceest-fitness-app .
 Run the container:
 
 ```bash
-docker run -p 5002:5002 aceest-fitness-app
+docker run -p 5001:5001 aceest-fitness-app
 ```
 
 ## CI/CD
 
-The GitHub Actions workflow runs on every `push` and `pull_request`. It installs dependencies, runs `pytest`, and builds the Docker image.
+The GitHub Actions workflow runs on every `push` and `pull_request`. It performs a build and lint check with `py_compile`, runs `pytest`, builds the Docker image, and runs tests from the built Docker image.
 
 ## Jenkins Explanation
 

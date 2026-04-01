@@ -22,8 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Build and lint
+        run: python -m py_compile app.py test_app.py
+
       - name: Run tests
         run: pytest
 
       - name: Build Docker image
         run: docker build -t aceest-fitness-app .
+
+      - name: Run tests in Docker image
+        run: docker run --rm aceest-fitness-app pytest
