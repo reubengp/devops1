@@ -1,36 +1,29 @@
-# ACEest Fitness Flask DevOps Project
+# ACEest Fitness DevOps Project
 
-This project converts the baseline Tkinter fitness app into a minimal Flask API for the DevOps assignment. It keeps the core logic for client name, weight, program selection, and calorie calculation, and uses simple in-memory storage.
+This is a simple Flask API built from the original fitness app logic for the DevOps assignment. It stores clients in memory and calculates calories from the selected program and weight.
 
-## Project Structure
+## Files
 
 ```text
-project/
-│── app.py
-│── test_app.py
-│── requirements.txt
-│── Dockerfile
-│── Jenkinsfile
-│── README.md
-│── .github/workflows/main.yml
+app.py
+test_app.py
+requirements.txt
+Dockerfile
+Jenkinsfile
+README.md
+.github/workflows/main.yml
 ```
 
 ## Run Locally
 
-1. Create and activate a virtual environment.
-2. Install dependencies:
-
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-3. Run the Flask application:
-
-```bash
 python app.py
 ```
 
-The app starts on `http://0.0.0.0:5001`.
+The app runs on `http://127.0.0.1:5001`.
 
 ## Run Tests
 
@@ -40,27 +33,29 @@ pytest
 
 ## Docker
 
-Build the image:
+Build:
 
 ```bash
 docker build -t aceest-fitness-app .
 ```
 
-Run the container:
+Run:
 
 ```bash
 docker run -p 5001:5001 aceest-fitness-app
 ```
 
-## CI/CD
+## GitHub Actions
 
-The GitHub Actions workflow runs on every `push` and `pull_request`. It performs a build and lint check with `py_compile`, runs `pytest`, builds the Docker image, and runs tests from the built Docker image.
+The workflow runs on every `push` and `pull_request`. It checks the Python files, runs `pytest`, builds the Docker image, and runs tests inside the built image.
 
-## Jenkins Explanation
+## Jenkins
 
-- Pulls code from GitHub
-- Builds the project
-- Runs tests
-- Acts as a quality gate before deployment or release
+Jenkins is used as a build pipeline for this project.
 
-This repository also includes a `Jenkinsfile` so the same stages can be configured in Jenkins without changing the application code. In a Jenkins setup, you would create a pipeline job connected to this GitHub repository, and Jenkins would execute the checkout, dependency installation, test, and Docker build stagesautomatically.
+- Jenkins pulls the code from GitHub
+- Jenkins builds the project
+- Jenkins runs the tests
+- Jenkins acts as a quality gate before deployment
+
+The repository includes a `Jenkinsfile` for the Jenkins pipeline.
