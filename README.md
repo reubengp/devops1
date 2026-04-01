@@ -1,8 +1,8 @@
 # ACEest Fitness DevOps Project
 
-This is a simple Flask API built from the original fitness app logic for the DevOps assignment. It stores clients in memory and calculates calories from the selected program and weight.
+This project is a small Flask API made for the DevOps assignment. It keeps the main fitness logic from the original program: client name, weight, selected program, and calorie calculation.
 
-## Files
+## Project Files
 
 ```text
 app.py
@@ -14,7 +14,7 @@ README.md
 .github/workflows/main.yml
 ```
 
-## Run Locally
+## Run the App
 
 ```bash
 python3 -m venv .venv
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The app runs on `http://127.0.0.1:5001`.
+Open `http://127.0.0.1:5001`
 
 ## Run Tests
 
@@ -33,29 +33,22 @@ pytest
 
 ## Docker
 
-Build:
-
 ```bash
 docker build -t aceest-fitness-app .
-```
-
-Run:
-
-```bash
 docker run -p 5001:5001 aceest-fitness-app
 ```
 
 ## GitHub Actions
 
-The workflow runs on every `push` and `pull_request`. It checks the Python files, runs `pytest`, builds the Docker image, and runs tests inside the built image.
+The workflow runs on every `push` and `pull_request`. It checks the Python files, runs the tests, and builds the Docker image.
 
 ## Jenkins
 
-Jenkins is used as a build pipeline for this project.
+Jenkins is used as the build pipeline in this project.
 
 - Jenkins pulls the code from GitHub
 - Jenkins builds the project
 - Jenkins runs the tests
-- Jenkins acts as a quality gate before deployment
+- Jenkins acts as a quality gate
 
-The repository includes a `Jenkinsfile` for the Jenkins pipeline.
+The Jenkins pipeline is defined in `Jenkinsfile`.
