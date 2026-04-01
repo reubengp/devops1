@@ -14,14 +14,6 @@ project/
 │── .github/workflows/main.yml
 ```
 
-## Run Locally
-
-1. Create and activate a virtual environment if you want an isolated setup.
-2. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
 
 3. Run the Flask application:
 
@@ -57,7 +49,6 @@ The GitHub Actions workflow runs on every `push` and `pull_request`. It installs
 
 ## Jenkins Explanation
 
-Jenkins is not installed in this project. For the assignment, Jenkins would be used as a build server that:
 
 - Pulls code from GitHub
 - Builds the project
