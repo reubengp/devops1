@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_BIN = '/usr/local/bin/docker'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -23,7 +27,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t aceest-fitness-app .'
+                sh '${DOCKER_BIN} build -t aceest-fitness-app .'
             }
         }
     }
