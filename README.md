@@ -34,7 +34,12 @@ pytest
 ## Docker
 
 ```bash
+Build the image:
+
 docker build -t aceest-fitness-app .
+
+Run the container:
+
 docker run -p 5001:5001 aceest-fitness-app
 ```
 
@@ -49,6 +54,7 @@ Jenkins is used as the build pipeline in this project.
 - Jenkins pulls the code from GitHub
 - Jenkins builds the project
 - Jenkins runs the tests
-- Jenkins acts as a quality gate
+- Jenkins  works as a second validation layer to ensure everything builds correctly in a clean environment.
+
 
 The Jenkins pipeline is defined in `Jenkinsfile`.
