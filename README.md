@@ -34,7 +34,12 @@ pytest
 ## Docker
 
 ```bash
+Build the image:
+
 docker build -t aceest-fitness-app .
+
+Run the container:
+
 docker run -p 5001:5001 aceest-fitness-app
 ```
 
