@@ -1,6 +1,6 @@
 # ACEest Fitness DevOps Project
 
-This project is a small Flask API made for the DevOps assignment. It keeps the main fitness logic from the original program: client name, weight, selected program, and calorie calculation.
+This project is a small Flask web application made for the DevOps assignment. It keeps the main fitness logic from the original program: client name, weight, selected program, and calorie calculation.
 
 ## Project Files
 
@@ -44,11 +44,11 @@ The workflow runs on every `push` and `pull_request`. It checks the Python files
 
 ## Jenkins
 
+
 Jenkins is used as the build pipeline in this project.
 
 - Jenkins pulls the code from GitHub
 - Jenkins builds the project
 - Jenkins runs the tests
-- Jenkins acts as a quality gate
 
 The Jenkins pipeline is defined in `Jenkinsfile`.
